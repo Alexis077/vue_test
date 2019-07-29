@@ -1,31 +1,25 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class="container">
+    <navigation></navigation>
+    <br>
+    <top></top>
+    <br>
+    <div class="jumbotron col-md-12">
+      <products></products>
     </div>
-    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import top from './components/top.vue';
+import products from './components/products.vue';
+import navigation from './components/navigation.vue';
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  components:{
+    top,
+    products,
+    navigation
+  }
+};
+</script>
