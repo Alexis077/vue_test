@@ -14,7 +14,7 @@
                 <th>{{product.quantity}}</th>
                 <td>{{product.description}}</td>
                 <td>{{product.unit_price}}</td>
-                <td>{{product.import}}</td>
+                <td>{{parseFloat(product.quantity) * parseFloat(product.unit_price)}}</td>
                 </tr>
             </tbody>
         </table>
@@ -22,14 +22,21 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            products:[{quantity:2,description:"Ipad 128 gb",unit_price:5000,import:10000},
-            {quantity:2,description:"Ipad 128 gb",unit_price:5000,import:10000},
-            {quantity:2,description:"Ipad 128 gb",unit_price:5000,import:10000},
-            {quantity:2,description:"Ipad 128 gb",unit_price:5000,import:10000}]
-        }
+   data(){
+    return {
+        products:[]
     }
+  },
+  methods: {
+    loadProducts(){
+        this.axios.get('http://localhost:8082/products/').then((response) => {
+            this.products = response.data.data
+        })
+    }
+  },
+  created(){
+      this.loadProducts()
+  }
 }
 </script>
 

@@ -1,25 +1,27 @@
 <template>
   <div class="container">
-    <navigation></navigation>
-    <br>
-    <top></top>
+    <Top></Top>
     <br>
     <div class="jumbotron col-md-12">
-      <products></products>
+      <Products></Products>
+      <ProductForm></ProductForm>
     </div>
   </div>
 </template>
 
 <script>
-import top from './components/top.vue';
-import products from './components/products.vue';
-import navigation from './components/navigation.vue';
+import Top from './components/Top';
+import Products from './components/Products';
+import ProductForm from './components/ProductForm';
 
 export default {
   components:{
-    top,
-    products,
-    navigation
+    Top,
+    Products,
+    ProductForm
   }
 };
 </script>
+<style>
+  
+</style>
